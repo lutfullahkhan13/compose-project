@@ -1,0 +1,24 @@
+services:
+  web:
+    container_name: my-nginx
+    build: ./myapp
+    restart: always
+    ports:
+      - "8081:80"
+    volumes:
+    - ./website:/usr/share/nginx/html 
+    depends_on:
+      - database
+
+  database:
+    container_name: my-mysql
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: devopsdb
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
