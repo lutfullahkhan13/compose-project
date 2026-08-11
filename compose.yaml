@@ -6,7 +6,7 @@ services:
     ports:
       - "8081:80"
     volumes:
-    - ./website:/usr/share/nginx/html 
+      - ./website:/usr/share/nginx/html
     depends_on:
       - database
 
@@ -15,8 +15,8 @@ services:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: devopsdb
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - mysql-data:/var/lib/mysql
 
