@@ -17,3 +17,6 @@ jobs:
         run: |
           test -f website/index.html
           echo "Website file exists"
+
+      - name: Build Docker image
+        run: docker build -t myapp-test ./myapp
