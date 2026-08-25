@@ -1,0 +1,7 @@
+services:
+  myapp:
+    image: lutfullahkhan13/myapp:latest
+    container_name: myapp-deploy
+    ports:
+      - "8082:80"
+    restart: always
