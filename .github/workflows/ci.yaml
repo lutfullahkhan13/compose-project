@@ -29,3 +29,13 @@ jobs:
 
       - name: Push Docker image
         run: docker push lutfullahkhan13/myapp:latest
+  deploy:
+    needs: test
+    runs-on: self-hosted
+
+    steps:
+      - name: Deploy application
+        run: |
+          cd /home/lutfullah/compose-project
+          docker compose -f deploy-compose.yaml pull
+          docker compose -f deploy-compose.yaml up -d
