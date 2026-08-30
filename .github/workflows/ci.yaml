@@ -28,10 +28,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
       - name: Push Docker image
-        run: docker push lutfullahkhan13/myapp:latest
-             docker push lutfullahkhan13/myapp:v7
+        run: |
+          docker push lutfullahkhan13/myapp:latest
+          docker push lutfullahkhan13/myapp:v7
+
   deploy:
     needs: test
     runs-on: self-hosted
