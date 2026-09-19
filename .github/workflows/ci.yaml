@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+workflow_dispatch:
+  inputs:
+    image_tag:
+      description: 'Docker image tag / commit SHA'
+      required: true
 
 jobs:
   test:
