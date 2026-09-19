@@ -45,5 +45,5 @@ jobs:
       - name: Deploy application
         run: |
           cd /home/lutfullah/compose-project
-          IMAGE_TAG=${{ github.sha }} docker compose -f deploy-compose.yaml pull
-          IMAGE_TAG=${{ github.sha }} docker compose -f deploy-compose.yaml up -d
+          IMAGE_TAG=${{ github.event.inputs.image_tag || github.sha }} docker compose -f deploy-compose.yaml pull
+          IMAGE_TAG=${{ github.event.inputs.image_tag || github.sha }} docker compose -f deploy-compose.yaml up -d
