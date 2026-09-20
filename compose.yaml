@@ -3,6 +3,8 @@ services:
     container_name: my-nginx
     build: ./myapp
     restart: always
+    environment:
+      APP_ENV: ${APP_ENV}
     ports:
       - "8081:80"
     volumes:
