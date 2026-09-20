@@ -5,6 +5,11 @@ services:
     restart: always
     environment:
       APP_ENV: ${APP_ENV}
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     ports:
       - "8081:80"
     volumes:
